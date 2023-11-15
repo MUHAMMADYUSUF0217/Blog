@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Home from './pages/Home';
+import Academy from './pages/Academy'
+import Projects from './pages/Projects'
+import Channel from './pages/Channel'
+import Blog from './pages/Blog';
+import ResponsiveAppBar from './components/ResponsiveAppBar';
+import { Route, Routes } from 'react-router-dom';
+import About from './pages/About';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <ResponsiveAppBar/>
+    <Routes>
+    <Route path="/" element={<Home/>}/>
+    <Route path="/academy" element={<Academy/>}/>
+    <Route path="/blog" element={<Blog/>}/>
+    <Route path="/projects" element={<Projects/>}/>
+    <Route path="/channel" element={<Channel/>}/>
+    <Route path="/about" element={<About/>}/>
+    </Routes>
+    </>
   );
-}
+};
+
+App.propTypes = {};
 
 export default App;
